@@ -10,6 +10,26 @@ output "cognito_url" {
   value = "https://${aws_cognito_user_pool_domain.this.domain}.auth.${var.aws_region}.amazoncognito.com"
 }
 
+output "docdb_cluster_arn" {
+  value = aws_docdb_cluster.this.arn
+}
+
+output "docdb_cluster_url" {
+  value = aws_docdb_cluster.this.endpoint
+}
+
+output "docdb_cluster_instance_arn" {
+  value = aws_docdb_cluster_instance.this.arn
+}
+
+output "docdb_cluster_instance_url" {
+  value = aws_docdb_cluster_instance.this.endpoint
+}
+
+output "docdb_cluster_instance_port" {
+  value = aws_docdb_cluster_instance.this.port
+}
+
 # output "lambda_layer_name" {
 #   value = aws_lambda_layer_version.joi.layer_name
 # }

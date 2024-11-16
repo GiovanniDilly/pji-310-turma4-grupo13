@@ -1,4 +1,17 @@
+# Arquivos do Terraform
 terraform/.terraform.lock.hcl
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 terraform/.terraform/providers/registry.terraform.io
+terraform/plan.tfout
+
+# Variáveis sensíveis
+terraform/testing.tfvars
+
+# Arquivos não prontos
+terraform/rascunho
+terraform/lambda.tf
+terraform/api.tf
+
+lambda
+
