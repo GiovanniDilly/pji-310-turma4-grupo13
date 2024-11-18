@@ -9,9 +9,6 @@ terraform/plan.tfout
 terraform/testing.tfvars
 
 # Arquivos não prontos
-terraform/rascunho
-terraform/lambda.tf
-terraform/api.tf
 
 lambda/layers/layers
 
