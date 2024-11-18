@@ -13,5 +13,9 @@ terraform/rascunho
 terraform/lambda.tf
 terraform/api.tf
 
-lambda
+lambda/layers/layers
+
+python/
+
+package
 
