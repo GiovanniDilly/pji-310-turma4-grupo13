@@ -1,34 +1,56 @@
-output "cognito_pool_id" {
-  value = aws_cognito_user_pool.this.id
+# output "cognito_pool_id" {
+#   value = aws_cognito_user_pool.this.id
+# }
+
+# output "cognito_client_id" {
+#   value = aws_cognito_user_pool_client.this.id
+# }
+
+# output "cognito_url" {
+#   value = "https://${aws_cognito_user_pool_domain.this.domain}.auth.${var.aws_region}.amazoncognito.com"
+# }
+
+#-------------------------------------------------------------------------------
+
+# AWS RDS - MySQL
+
+output "rds_mysql_arn" {
+  value = aws_db_instance.this.arn
 }
 
-output "cognito_client_id" {
-  value = aws_cognito_user_pool_client.this.id
+output "rds_mysql_endpoint" {
+  value = aws_db_instance.this.endpoint
 }
 
-output "cognito_url" {
-  value = "https://${aws_cognito_user_pool_domain.this.domain}.auth.${var.aws_region}.amazoncognito.com"
+output "rds_mysql_status" {
+  value = aws_db_instance.this.status
 }
 
-output "docdb_cluster_arn" {
-  value = aws_docdb_cluster.this.arn
-}
+#-------------------------------------------------------------------------------
 
-output "docdb_cluster_url" {
-  value = aws_docdb_cluster.this.endpoint
-}
+# DocumentDB
 
-output "docdb_cluster_instance_arn" {
-  value = aws_docdb_cluster_instance.this.arn
-}
+# output "docdb_cluster_arn" {
+#   value = aws_docdb_cluster.this.arn
+# }
 
-output "docdb_cluster_instance_url" {
-  value = aws_docdb_cluster_instance.this.endpoint
-}
+# output "docdb_cluster_url" {
+#   value = aws_docdb_cluster.this.endpoint
+# }
 
-output "docdb_cluster_instance_port" {
-  value = aws_docdb_cluster_instance.this.port
-}
+# output "docdb_cluster_instance_arn" {
+#   value = aws_docdb_cluster_instance.this.arn
+# }
+
+# output "docdb_cluster_instance_url" {
+#   value = aws_docdb_cluster_instance.this.endpoint
+# }
+
+# output "docdb_cluster_instance_port" {
+#   value = aws_docdb_cluster_instance.this.port
+# }
+
+#-------------------------------------------------------------------------------
 
 # output "lambda_layer_name" {
 #   value = aws_lambda_layer_version.joi.layer_name

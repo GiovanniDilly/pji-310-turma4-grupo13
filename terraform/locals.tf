@@ -5,9 +5,9 @@ locals {
 
   common_tags = {
     Project   = "PJI 240 - Avul"
-    CreatedAt = "2024-11-16"
+    CreatedAt = "2024-05-24"
     ManagedBy = "Terraform"
-    Owner     = "PJI 240 Turma 5 Grupo 21"
+    Owner     = "PJI 310 Turma 4 Grupo 16"
     Service   = var.service_name
   }
 

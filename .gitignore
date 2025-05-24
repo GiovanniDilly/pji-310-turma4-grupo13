@@ -14,5 +14,6 @@ lambda/layers/layers
 
 python/
 
-package
+python_files
 
+web

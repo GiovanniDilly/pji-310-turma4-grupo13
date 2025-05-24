@@ -31,31 +31,68 @@ variable "aws_account_id_str" {
 variable "service_name" {
   type        = string
   description = "Nome do Serviço"
-  default     = "avul-pji240"
+  default     = "avul-pji310"
 }
 
 variable "service_domain" {
   type        = string
   description = "Domínio do Serviço"
-  default     = "api-avul-1-pji240"
+  default     = "api-avul-1-pji310"
 }
 
 variable "vpc_id" {
   type        = string
-  description = "ID da VPC criada pelo DocumentDB"
+  description = "ID da VPC criada pelo MySQL (AWS RDS)"
 }
 
-variable "docdb_master_username" {
+#-------------------------------------------------------------------------------
+
+# AWS RDS - MySQL
+
+variable "rds_mysql_master_username" {
   type        = string
-  description = "Usuário Mestre do DocumentDB"
+  description = "Usuário Mestre do MySQL (AWS RDS)"
   sensitive   = true
 }
 
-variable "docdb_master_password" {
+variable "rds_mysql_master_password" {
   type        = string
-  description = "Senha Mestre do DocumentDB. Deve conter 8 caracteres."
+  description = "Senha Mestre do MySQL (AWS RDS). Deve conter 8 caracteres."
   sensitive   = true
 }
+
+variable "rds_mysql_name" {
+  type        = string
+  description = "Nome do DB"
+  default     = "avuldb"
+}
+
+variable "rds_allocated_storage" {
+  type        = number
+  description = "Espaço alocado do DB (em GiB)"
+  default     = 20
+}
+
+variable "rds_mysql_engine" {
+  type        = string
+  description = "A Engine (motor) usado no DB"
+  default   = "mysql"
+}
+
+variable "rds_mysql_engine_version" {
+  type        = string
+  description = "A versão da engine (motor) usado no DB"
+  default   = "8.0.42"
+}
+
+variable "rds_mysql_instance_class" {
+  type        = string
+  description = "A classe da instância usada no DB"
+  default   = "db.t4g.micro"
+}
+
+#-------------------------------------------------------------------------------
+
 
 variable "lambda_layer_name" {
   type        = string

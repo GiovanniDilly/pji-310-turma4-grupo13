@@ -6,12 +6,12 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.76.0"
+      version = "5.98.0"
 
     }
     random = {
       source  = "hashicorp/random"
-      version = "3.6.3"
+      version = "3.7.2"
     }
     template = {
       source  = "hashicorp/template"
@@ -19,17 +19,15 @@ terraform {
     }
     archive = {
       source  = "hashicorp/archive"
-      version = "2.6.0"
+      version = "2.7.1"
     }
     null = {
       source  = "hashicorp/null"
-      version = "3.2.3"
+      version = "3.2.4"
     }
   }
 
-
 }
-
 
 provider "aws" {
   region  = var.aws_region
