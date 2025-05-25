@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Relatório de Atividades da Inspetoria - Diário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+
+  <style>
+    /* Estilo Geral */
+    body {
+      background-color: #f5f7fa; /* Fundo neutro e profissional */
+      font-family: 'Roboto', Arial, sans-serif; /* Fonte moderna e legível */
+      color: #333333; /* Texto em cinza escuro */
+      margin: 0;
+      padding: 0;
+    }
+  
+    .form-container {
+      max-width: 650px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #ffffff; /* Fundo branco para o formulário */
+      border-radius: 10px; /* Bordas arredondadas */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+      border: 1px solid #e3e6ea; /* Borda sutil */
+    }
+  
+    /* Título do Formulário */
+    .form-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #00509e; /* Azul corporativo */
+      text-transform: uppercase; /* Letras maiúsculas para destaque */
+      letter-spacing: 1px; /* Espaçamento entre letras */
+      border-bottom: 2px solid #00509e; /* Linha decorativa abaixo do título */
+      padding-bottom: 0.5rem;
+    }
+  
+    /* Estilo do Fieldset */
+    fieldset {
+      border: 2px solid #00509e; /* Azul corporativo */
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background-color: #f9fbfe; /* Fundo azul claro */
+    }
+  
+    legend {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #00509e; /* Azul corporativo */
+      padding: 0 10px;
+      text-transform: uppercase;
+    }
+  
+    /* Estilo dos Labels e Campos */
+    .form-label {
+      font-weight: 500;
+      color: #333333;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  
+    .form-control {
+      width: 100%;
+      border: 1px solid #d1d5db; /* Cinza claro */
+      border-radius: 6px;
+      padding: 0.75rem;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .form-control:focus {
+      border-color: #00509e; /* Azul corporativo no foco */
+      box-shadow: 0 0 5px rgba(0, 80, 158, 0.25); /* Realce ao redor do campo */
+    }
+  
+    textarea.form-control {
+      resize: none; /* Desabilitar redimensionamento */
+    }
+  
+    /* Botão Personalizado */
+    .btn-custom {
+      width: 100%;
+      background-color: #00509e; /* Azul corporativo */
+      color: #ffffff; /* Texto branco */
+      border: none;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    .btn-custom:hover {
+      background-color: #003f7f; /* Azul mais escuro no hover */
+    }
+  
+    .btn-custom:active {
+      background-color: #002d5b; /* Azul ainda mais escuro no clique */
+    }
+  
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 1.5rem;
+      }
+  
+      .form-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    #unique-fieldset {
+  background-color: #f9f9f9; /* Cor de fundo neutra, leve */
+  border: 1px solid #dcdcdc; /* Borda sutil e discreta */
+  padding: 20px; /* Espaçamento interno para tornar o conteúdo mais arejado */
+  border-radius: 8px; /* Bordas suavizadas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombras suaves para destacar o campo */
+}
+
+#unique-fieldset label {
+  font-weight: 600; /* Texto em negrito para destaque */
+  font-size: 1rem; /* Tamanho de fonte ajustado para maior legibilidade */
+  color: #333; /* Cor de texto escura para contraste */
+}
+
+#unique-fieldset input,
+#unique-fieldset select {
+  background-color: #ffffff; /* Fundo branco para campos de entrada */
+  border: 1px solid #ccc; /* Bordas discretas */
+  border-radius: 4px; /* Bordas arredondadas */
+  padding: 8px 12px; /* Espaçamento confortável para digitar */
+  width: 100%; /* Ocupa toda a largura disponível */
+  font-size: 0.875rem; /* Tamanho de fonte adequado para leitura */
+  color: #333; /* Cor de texto */
+}
+
+#unique-fieldset input:focus,
+#unique-fieldset select:focus {
+  border-color: #007bff; /* Cor azul ao focar, para indicar interação */
+  outline: none; /* Remove o contorno padrão */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); /* Sombra sutil para destacar o foco */
+}
+
+#unique-fieldset small {
+  font-size: 0.875rem; /* Tamanho de fonte pequeno */
+  color: #6c757d; /* Cor suave para texto de ajuda */
+}
+
+
+  </style>
+
+
+  <body class="form-container" style="padding-top: 10px; padding-bottom: 10px;">
+    <script>
+
+    </script>
+    <h1 class="form-title">Relatório de Atividades da Inspetoria - Diário</h1>
+    <form>
+
+        <fieldset class="container mb-3" id="unique-fieldset">
+        <div class="row mb-3">
+          <label for="inputData" class="col-sm-3 col-form-label">1. Data</label>
+          <div class="col-sm-7">
+            <input type="date" class="form-control" id="inputData">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="inputMonitor" class="col-sm-3 col-form-label">2. Monitor</label>
+            <div class="col-sm-7">
+              <select class="form-select" id="inputMonitor">
+                <option selected>Selecionar</option>
+                <option value="1">J. Pedro</option>
+                <option value="2">C. José</option>
+                <option value="12">S. Rosa</option>
+                <option value="13">K. Rias</option>
+                <option value="14">P. Rico</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputRegistro" class="col-sm-3 col-form-label">3. Tipo de registro</label>
+          <div class="col-sm-7">
+            <select class="form-select" id="inputRegistro">
+              <option selected>Selecionar</option>
+              <option value="1">Registro de Atividades</option>
+              <option value="2">Entrada, saída e intervalo para refeição</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputAtividades" class="col-sm-3 col-form-label">4. Atividade iniciada</label>
+          <div class="col-sm-7">
+            <select class="form-select" id="inputAtividades">
+              <option selected>Selecionar</option>
+              <option value="1">Viagem de acompanhamento de Condutor</option>
+              <option value="2">Apoio à operação / Fiscalização e Reciclagens</option>
+              <option value="3">Avaliação de condutor (experiência e 70 horas)</option>
+            </select>
+          </div>
+        </div>
+    </fieldset>
+
+        <fieldset class="container mb-3 omit">
+            <legend>5. Setor</legend>
+            <div class="col-sm-7">
+              <select class="form-select" id="inputNaturezaAtividade">
+                <option selected>Selecionar</option>
+                <option value="1">Setor Norte</option>
+                <option value="2">Setor Sul</option>
+              </select>
+            </div>
+          </fieldset>
+  
+          <fieldset class="container mb-3">
+            <div class="row mb-3">
+                <label for="inputHorarioEntrada" class="col-sm-5 col-form-label">7. Horário de Entrada</label>
+                <div class="col-sm-7">
+                    <input type="time" class="form-control" id="inputHorarioEntrada">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputHorarioSaida" class="col-sm-5 col-form-label">8. Horário de Saída</label>
+                <div class="col-sm-7">
+                    <input type="time" class="form-control" id="inputHorarioSaida">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputInicioRefeicao" class="col-sm-5 col-form-label">9. Intervalo para refeição - Início</label>
+                <div class="col-sm-7">
+                    <input type="time" class="form-control" id="inputInicioRefeicao">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputFimRefeicao" class="col-sm-5 col-form-label">10. Intervalo para refeição - Final</label>
+                <div class="col-sm-7">
+                    <input type="time" class="form-control" id="inputFimRefeicao">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="inputLocalLargada" class="col-sm-5 col-form-label">11. Local da Largada</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="inputLocalLargada">
+                </div>
+            </div>
+        </fieldset>
+  
+        <fieldset class="container mb-3">
+    <legend>Acompanhamento de condutor / Viagem</legend>
+
+    <div class="row mb-3">
+        <label for="inputMotorista" class="col-sm-5 col-form-label">12. Motorista</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" id="inputMotorista">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputPrefixo" class="col-sm-5 col-form-label">13. PREFIXO</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" id="inputPrefixo">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputNumeroLinha" class="col-sm-5 col-form-label">14. Número da linha</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" id="inputNumeroLinha">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputLocalEmbarque" class="col-sm-5 col-form-label">15. Local de embarque</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" id="inputLocalEmbarque">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-5 col-form-label">16. Check List - Itens de Segurança e Limpeza</label>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioAnjoGuarda" id="radioAnjoGuardaSim" value="sim">
+                <label class="form-check-label" for="radioAnjoGuardaSim">Sim/Ok</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioAnjoGuarda" id="radioAnjoGuardaNao" value="nao">
+                <label class="form-check-label" for="radioAnjoGuardaNao">Não</label>
+            </div>
+            <label class="form-check-label w-100" for="radioAnjoGuardaSim">Anjo da Guarda</label>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCintoSeguranca" id="radioCintoSegurancaSim" value="sim">
+                <label class="form-check-label" for="radioCintoSegurancaSim">Sim/Ok</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCintoSeguranca" id="radioCintoSegurancaNao" value="nao">
+                <label class="form-check-label" for="radioCintoSegurancaNao">Não</label>
+            </div>
+            <label class="form-check-label w-100" for="radioCintoSegurancaSim">Cinto de Segurança</label>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioLimpezaArea" id="radioLimpezaAreaSim" value="sim">
+                <label class="form-check-label" for="radioLimpezaAreaSim">Sim/Ok</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioLimpezaArea" id="radioLimpezaAreaNao" value="nao">
+                <label class="form-check-label" for="radioLimpezaAreaNao">Não</label>
+            </div>
+            <label class="form-check-label w-100" for="radioLimpezaAreaSim">Limpeza da Área de Trabalho</label>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioAsseio" id="radioAsseioSim" value="sim">
+                <label class="form-check-label" for="radioAsseioSim">Sim/Ok</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioAsseio" id="radioAsseioNao" value="nao">
+                <label class="form-check-label" for="radioAsseioNao">Não</label>
+            </div>
+            <label class="form-check-label w-100" for="radioAsseioSim">Asseio</label>
+        </div>
+    </div>
+
+    <label for="inputObservacoes" class="form-label">17. Observações</label>
+    <textarea class="form-control" id="inputObservacoes" rows="3"></textarea>
+
+    <div class="row mb-3">
+        <label for="inputMotorista" class="col-sm-5 col-form-label">12. Motorista</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" id="inputMotorista">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputPrefixo" class="col-sm-5 col-form-label">13. PREFIXO</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" id="inputPrefixo">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputNumeroLinha" class="col-sm-5 col-form-label">14. Número da linha</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" id="inputNumeroLinha">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputLocalEmbarque" class="col-sm-5 col-form-label">15. Local de embarque</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" id="inputLocalEmbarque">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-5 col-form-label">16. Check List - Itens de Segurança e Limpeza</label>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioAnjoGuarda" id="radioAnjoGuardaSim" value="sim">
+                <label class="form-check-label" for="radioAnjoGuardaSim">Sim/Ok</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioAnjoGuarda" id="radioAnjoGuardaNao" value="nao">
+                <label class="form-check-label" for="radioAnjoGuardaNao">Não</label>
+            </div>
+            <label class="form-check-label w-100" for="radioAnjoGuardaSim">Anjo da Guarda</label>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCintoSeguranca" id="radioCintoSegurancaSim" value="sim">
+                <label class="form-check-label" for="radioCintoSegurancaSim">Sim/Ok</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCintoSeguranca" id="radioCintoSegurancaNao" value="nao">
+                <label class="form-check-label" for="radioCintoSegurancaNao">Não</label>
+            </div>
+            <label class="form-check-label w-100" for="radioCintoSegurancaSim">Cinto de Segurança</label>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioLimpezaArea" id="radioLimpezaAreaSim" value="sim">
+                <label class="form-check-label" for="radioLimpezaAreaSim">Sim/Ok</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioLimpezaArea" id="radioLimpezaAreaNao" value="nao">
+                <label class="form-check-label" for="radioLimpezaAreaNao">Não</label>
+            </div>
+            <label class="form-check-label w-100" for="radioLimpezaAreaSim">Limpeza da Área de Trabalho</label>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioAsseio" id="radioAsseioSim" value="sim">
+                <label class="form-check-label" for="radioAsseioSim">Sim/Ok</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioAsseio" id="radioAsseioNao" value="nao">
+                <label class="form-check-label" for="radioAsseioNao">Não</label>
+            </div>
+            <label class="form-check-label w-100" for="radioAsseioSim">Asseio</label>
+        </div>
+    </div>
+
+    <label for="inputObservacoes" class="form-label">17. Observações</label>
+    <textarea class="form-control" id="inputObservacoes" rows="3"></textarea>
+    <br/>
+    <label class="form-label">18. OPERAÇÃO DO VEÍCULO - FALHAS OPERACIONAIS</label>
+    <small class="form-text text-muted">Status do validador e letreiros, trancos, uso de embreagem, lombadas, atenção ao embarque e desembarque, etc...</small>
+    <div class="row mb-3 align-items-center">
+        <label class="col-sm-5 col-form-label">Falhas Operacionais</label>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioFalhasOperacionais" id="radioFalhasOperacionaisSemFalhas" value="0">
+                <label class="form-check-label" for="radioFalhasOperacionaisSemFalhas">Sem falhas</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioFalhasOperacionais" id="radioFalhasOperacionais1" value="1">
+                <label class="form-check-label" for="radioFalhasOperacionais1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioFalhasOperacionais" id="radioFalhasOperacionais2" value="2">
+                <label class="form-check-label" for="radioFalhasOperacionais2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioFalhasOperacionais" id="radioFalhasOperacionais3" value="3">
+                <label class="form-check-label" for="radioFalhasOperacionais3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioFalhasOperacionais" id="radioFalhasOperacionais4" value="4">
+                <label class="form-check-label" for="radioFalhasOperacionais4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioFalhasOperacionais" id="radioFalhasOperacionais5mais" value="5">
+                <label class="form-check-label" for="radioFalhasOperacionais5mais">5 ou +</label>
+            </div>
+        </div>
+    </div>
+
+    <label for="inputDescricaoOperacionais" class="form-label">19. DESCRIÇÃO / OBSERVAÇÕES</label>
+    <textarea class="form-control" id="inputDescricaoOperacionais" rows="3"></textarea>
+    
+    <br/>
+
+    <label class="form-label">20. CTB - FALHAS E ERROS OBSERVADOS</label>
+    <small class="form-text text-muted">Distância segura e de repente, mãos no volante/ mão no câmbio, ultrapassagens, preferenciais, etc...</small>
+    <div class="row mb-3 align-items-center">
+        <label for="radioCTBSemFalhas" class="col-sm-5 col-form-label">CTB</label>
+        <div class="col-sm-7">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCTB" id="radioCTBSemFalhas" value="0">
+                <label class="form-check-label" for="radioCTBSemFalhas">Sem falhas</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCTB" id="radioCTB1" value="1">
+                <label class="form-check-label" for="radioCTB1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCTB" id="radioCTB2" value="2">
+                <label class="form-check-label" for="radioCTB2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCTB" id="radioCTB3" value="3">
+                <label class="form-check-label" for="radioCTB3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCTB" id="radioCTB4" value="4">
+                <label class="form-check-label" for="radioCTB4">4</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioCTB" id="radioCTB5mais" value="5">
+                <label class="form-check-label" for="radioCTB5mais">5 ou +</label>
+            </div>
+        </div>
+    </div>
+
+    <label for="inputDescricaoCTB" class="form-label">21. DESCRIÇÃO / OBSERVAÇÕES</label>
+    <textarea class="form-control" id="inputDescricaoCTB" rows="3"></textarea>
+    
+    <br/>
+
+        <label class="form-label">22. TELEMETRIA - FALHAS E ERROS OBSERVADOS</label>
+        <small class="form-text text-muted">Aceleração (ACE), Curva Brusca (CB), Freada Brusca (FB), Excesso de Velocidade (VEL), Tempo Fora da Faixa Verde (TFFV), Curso do Pedal do Acelerador (CPA) e Marcha Lenta Excessiva (MLE)</small>
+        
+        <div class="row mb-3 align-items-center">
+            <label class="col-sm-5 col-form-label">ACE</label>
+            <div class="col-sm-7">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioACE" id="radioACESemFalhas" value="0">
+                    <label class="form-check-label" for="radioACESemFalhas">Sem falhas</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioACE" id="radioACE1" value="1">
+                    <label class="form-check-label" for="radioACE1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioACE" id="radioACE2" value="2">
+                    <label class="form-check-label" for="radioACE2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioACE" id="radioACE3" value="3">
+                    <label class="form-check-label" for="radioACE3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioACE" id="radioACE4" value="4">
+                    <label class="form-check-label" for="radioACE4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioACE" id="radioACE5mais" value="5">
+                    <label class="form-check-label" for="radioACE5mais">5 ou +</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3 align-items-center">
+            <label class="col-sm-5 col-form-label">CB</label>
+            <div class="col-sm-7">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCB" id="radioCBSemFalhas" value="0">
+                    <label class="form-check-label" for="radioCBSemFalhas">Sem falhas</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCB" id="radioCB1" value="1">
+                    <label class="form-check-label" for="radioCB1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCB" id="radioCB2" value="2">
+                    <label class="form-check-label" for="radioCB2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCB" id="radioCB3" value="3">
+                    <label class="form-check-label" for="radioCB3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCB" id="radioCB4" value="4">
+                    <label class="form-check-label" for="radioCB4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCB" id="radioCB5mais" value="5">
+                    <label class="form-check-label" for="radioCB5mais">5 ou +</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3 align-items-center">
+            <label class="col-sm-5 col-form-label">FB</label>
+            <div class="col-sm-7">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioFB" id="radioFBSemFalhas" value="0">
+                    <label class="form-check-label" for="radioFBSemFalhas">Sem falhas</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioFB" id="radioFB1" value="1">
+                    <label class="form-check-label" for="radioFB1">1</label>
+                </div>
+        <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioFB" id="radioFB2" value="2">
+                    <label class="form-check-label" for="radioFB2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioFB" id="radioFB3" value="3">
+                    <label class="form-check-label" for="radioFB3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioFB" id="radioFB4" value="4">
+                    <label class="form-check-label" for="radioFB4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioFB" id="radioFB5mais" value="5">
+                    <label class="form-check-label" for="radioFB5mais">5 ou +</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3 align-items-center">
+            <label class="col-sm-5 col-form-label">VEL</label>
+            <div class="col-sm-7">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioVEL" id="radioVELSemFalhas" value="0">
+                    <label class="form-check-label" for="radioVELSemFalhas">Sem falhas</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioVEL" id="radioVEL1" value="1">
+                    <label class="form-check-label" for="radioVEL1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioVEL" id="radioVEL2" value="2">
+                    <label class="form-check-label" for="radioVEL2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioVEL" id="radioVEL3" value="3">
+                    <label class="form-check-label" for="radioVEL3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioVEL" id="radioVEL4" value="4">
+                    <label class="form-check-label" for="radioVEL4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioVEL" id="radioVEL5mais" value="5">
+                    <label class="form-check-label" for="radioVEL5mais">5 ou +</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3 align-items-center">
+            <label class="col-sm-5 col-form-label">TFFV</label>
+            <div class="col-sm-7">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioTFFV" id="radioTFFVSemFalhas" value="0">
+                    <label class="form-check-label" for="radioTFFVSemFalhas">Sem falhas</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioTFFV" id="radioTFFV1" value="1">
+                    <label class="form-check-label" for="radioTFFV1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioTFFV" id="radioTFFV2" value="2">
+                    <label class="form-check-label" for="radioTFFV2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioTFFV" id="radioTFFV3" value="3">
+                    <label class="form-check-label" for="radioTFFV3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioTFFV" id="radioTFFV4" value="4">
+                    <label class="form-check-label" for="radioTFFV4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioTFFV" id="radioTFFV5mais" value="5">
+                    <label class="form-check-label" for="radioTFFV5mais">5 ou +</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3 align-items-center">
+            <label class="col-sm-5 col-form-label">CPA</label>
+            <div class="col-sm-7">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCPA" id="radioCPASemFalhas" value="0">
+                    <label class="form-check-label" for="radioCPASemFalhas">Sem falhas</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCPA" id="radioCPA1" value="1">
+                    <label class="form-check-label" for="radioCPA1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCPA" id="radioCPA2" value="2">
+                    <label class="form-check-label" for="radioCPA2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCPA" id="radioCPA3" value="3">
+                    <label class="form-check-label" for="radioCPA3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCPA" id="radioCPA4" value="4">
+                    <label class="form-check-label" for="radioCPA4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioCPA" id="radioCPA5mais" value="5">
+                    <label class="form-check-label" for="radioCPA5mais">5 ou +</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3 align-items-center">
+            <label class="col-sm-5 col-form-label">MLE</label>
+            <div class="col-sm-7">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioMLE" id="radioMLESemFalhas" value="0">
+                    <label class="form-check-label" for="radioMLESemFalhas">Sem falhas</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioMLE" id="radioMLE1" value="1">
+                    <label class="form-check-label" for="radioMLE1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioMLE" id="radioMLE2" value="2">
+                    <label class="form-check-label" for="radioMLE2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioMLE" id="radioMLE3" value="3">
+                    <label class="form-check-label" for="radioMLE3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioMLE" id="radioMLE4" value="4">
+                    <label class="form-check-label" for="radioMLE4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="radioMLE" id="radioMLE5mais" value="5">
+                    <label class="form-check-label" for="radioMLE5mais">5 ou +</label>
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="mb-3">
+            <label for="inputDescricaoTelemetria" class="form-label">23. DESCRIÇÃO / OBSERVAÇÕES</label>
+            <textarea class="form-control" id="inputDescricaoTelemetria" rows="3"></textarea>
+        </div>
+
+    </fieldset>
+  
+    
+  
+          <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+  </html>
+  

@@ -1,10 +1,10 @@
 use avuldb;
 
 /*
-DROP TABLE IF EXISTS usuario;
+DROP TABLE IF EXISTS formulario;
 DROP TABLE IF EXISTS registro_atividades;
 DROP TABLE IF EXISTS entrada_saida_intervalo;
-DROP TABLE IF EXISTS formulario;
+DROP TABLE IF EXISTS usuario;
 */
 
 CREATE TABLE usuario (
