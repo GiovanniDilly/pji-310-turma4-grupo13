@@ -26,6 +26,10 @@ output "rds_mysql_status" {
   value = aws_db_instance.this.status
 }
 
+output "engine" {
+  value = "mysql+mysqlconnector://${var.rds_mysql_master_username}:${var.rds_mysql_master_password}@${aws_db_instance.this.endpoint}/${var.rds_mysql_name}"
+}
+
 #-------------------------------------------------------------------------------
 
 # DocumentDB
@@ -70,12 +74,4 @@ output "rds_mysql_status" {
 
 # output "lambda_dynamo_url" {
 #   value = aws_lambda_function.dynamo.invoke_arn
-# }
-
-# output "api_url" {
-#   value = aws_api_gateway_deployment.this.invoke_url
-# }
-
-# output "bucket_name" {
-#   value = aws_s3_bucket.todo.bucket
 # }

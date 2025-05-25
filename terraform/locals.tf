@@ -1,7 +1,8 @@
 locals {
   lambdas_path = "${path.module}/../lambda/logica"
   layers_path  = "${path.module}/../lambda/layers"
-  layer_name   = "lambda_layer.zip"
+
+  layer_name = "lambda_layer.zip"
 
   common_tags = {
     Project   = "PJI 240 - Avul"
@@ -11,5 +12,5 @@ locals {
     Service   = var.service_name
   }
 
-  
+  s3_bucket = "some-shared-s3-based-data-golf-for-only-today"
 }

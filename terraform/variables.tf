@@ -37,7 +37,7 @@ variable "service_name" {
 variable "service_domain" {
   type        = string
   description = "Domínio do Serviço"
-  default     = "api-avul-1-pji310"
+  default     = "api-avul-2-pji310"
 }
 
 variable "vpc_id" {
@@ -52,13 +52,13 @@ variable "vpc_id" {
 variable "rds_mysql_master_username" {
   type        = string
   description = "Usuário Mestre do MySQL (AWS RDS)"
-  sensitive   = true
+  sensitive   = false
 }
 
 variable "rds_mysql_master_password" {
   type        = string
   description = "Senha Mestre do MySQL (AWS RDS). Deve conter 8 caracteres."
-  sensitive   = true
+  sensitive   = false
 }
 
 variable "rds_mysql_name" {
@@ -76,19 +76,19 @@ variable "rds_allocated_storage" {
 variable "rds_mysql_engine" {
   type        = string
   description = "A Engine (motor) usado no DB"
-  default   = "mysql"
+  default     = "mysql"
 }
 
 variable "rds_mysql_engine_version" {
   type        = string
   description = "A versão da engine (motor) usado no DB"
-  default   = "8.0.42"
+  default     = "8.0.42"
 }
 
 variable "rds_mysql_instance_class" {
   type        = string
   description = "A classe da instância usada no DB"
-  default   = "db.t4g.micro"
+  default     = "db.t4g.micro"
 }
 
 #-------------------------------------------------------------------------------

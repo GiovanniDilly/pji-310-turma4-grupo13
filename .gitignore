@@ -5,12 +5,19 @@ terraform/terraform.tfstate.backup
 terraform/.terraform/providers/registry.terraform.io
 terraform/plan.tfout
 
+terraform/files
+.terraform
+
 # Variáveis sensíveis
 terraform/testing.tfvars
 
 # Arquivos não prontos
 
-lambda/layers/layers
+venv
+
+lambda/layer
+
+lambda/python_files
 
 python/
 
